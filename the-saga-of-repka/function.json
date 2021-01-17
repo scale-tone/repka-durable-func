@@ -1,0 +1,10 @@
+{
+  "bindings": [
+    {
+      "name": "context",
+      "type": "orchestrationTrigger",
+      "direction": "in"
+    }
+  ],
+  "scriptFile": "../dist/the-saga-of-repka/index.js"
+}
