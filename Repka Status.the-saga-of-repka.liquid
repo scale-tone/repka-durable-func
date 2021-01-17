@@ -1,0 +1,21 @@
+
+{% assign teamMembers = "myshka,koshka,zhuchka,vnuchka,babka,dedka" | split: "," %}
+{% assign imgRoot = "https://raw.githubusercontent.com/scale-tone/repka-durable-func/master/images/" %}
+
+{% if CustomStatus.left == nil and CustomStatus.right.name == "myshka" %}
+    <span>REPKA</span>
+{% endif %}
+
+{% for teamMember in teamMembers %}
+
+    <img src={{ imgRoot | append: teamMember | append: ".png" }}/>
+
+    {% if CustomStatus.left and CustomStatus.left.name == teamMember %}
+        <span>REPKA</span>
+    {% endif %}
+
+{% endfor %}
+
+{% if CustomStatus.left == nil and CustomStatus.right.name == "dedka" %}
+    <span>REPKA</span>
+{% endif %}
