@@ -18,7 +18,16 @@
       "name": "starter",
       "type": "orchestrationClient",
       "direction": "in"
+    },
+
+    {
+        "name": "customLiquidTemplate",
+        "type": "blob",
+        "path": "durable-functions-monitor/tab-templates/Repka Status.the-saga-of-repka.liquid",
+        "connection": "AzureWebJobsStorage",
+        "direction": "out"
     }
+
   ],
   "scriptFile": "../dist/start-the-saga/index.js"
 }

@@ -2,20 +2,27 @@
 {% assign teamMembers = "myshka,koshka,zhuchka,vnuchka,babka,dedka" | split: "," %}
 {% assign imgRoot = "https://raw.githubusercontent.com/scale-tone/repka-durable-func/master/images/" %}
 
+{% assign toTheLeft = true %}
 {% if CustomStatus.left == nil and CustomStatus.right.name == "myshka" %}
-    <span>REPKA</span>
+    {% assign toTheLeft = false %}
+    <img src="{{ imgRoot | append: "repka.png" }}" height="100px"/>
 {% endif %}
 
 {% for teamMember in teamMembers %}
 
-    <img src={{ imgRoot | append: teamMember | append: ".png" }}/>
+    <img src="{{ imgRoot | append: teamMember | append: ".png" }}" height="100px"
+        {% if toTheLeft %}
+            style="transform: rotateY(180deg);"
+        {% endif %}
+    />
 
     {% if CustomStatus.left and CustomStatus.left.name == teamMember %}
-        <span>REPKA</span>
+        {% assign toTheLeft = false %}
+        <img src="{{ imgRoot | append: "repka.png" }}" height="100px"/>
     {% endif %}
 
 {% endfor %}
 
 {% if CustomStatus.left == nil and CustomStatus.right.name == "dedka" %}
-    <span>REPKA</span>
+    <img src="{{ imgRoot | append: "repka.png" }}" height="100px"/>
 {% endif %}
